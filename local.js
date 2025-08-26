@@ -1,7 +1,7 @@
 // local.js
 const translations = {
     en: {
-        djSubtitle: "Professional DJ & Music Producer",
+        djSubtitle: "DJ & Music Producer",
         songRequest: "Song Request",
         yourName: "Your Name",
         enterName: "Type your name here",
@@ -44,7 +44,7 @@ const translations = {
         selectMusicOrFile: "Please upload a music file or choose a song from the library"
     },
     no: {
-        djSubtitle: "Profesjonell DJ & Musikkprodusent",
+        djSubtitle: "DJ & Musikkprodusent",
         songRequest: "Sangønske",
         yourName: "Navnet ditt",
         enterName: "Skriv inn navnet ditt her",
@@ -87,7 +87,7 @@ const translations = {
         selectMusicOrFile: "Last opp en musikkfil eller velg en sang fra biblioteket"
     },
     fa: {
-        djSubtitle: "دی‌جی حرفه‌ای و تهیه‌کننده موسیقی",
+        djSubtitle: "دی‌جی و تهیه‌کننده موسیقی",
         songRequest: "درخواست آهنگ",
         yourName: "نام شما",
         enterName: "نام خود را اینجا وارد کنید",

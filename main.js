@@ -577,6 +577,7 @@ function toggleLanguageDropdown() {
 function changeLanguage(lang) {
     localStorage.setItem('selectedLanguage', lang);
     currentLanguage = lang;
+
     // Update current language display
     const languageNames = {
         'en': 'English',
@@ -584,16 +585,28 @@ function changeLanguage(lang) {
         'fa': 'Persian'
     };
     document.getElementById('currentLanguage').textContent = languageNames[lang];
+
     // Hide dropdown
     document.getElementById('languageOptions').classList.remove('show');
+
     // Update all translatable elements
     updateTranslations();
-    // Set text direction for Persian
+
+    // Get icons container
+    let rtlIcons = document.getElementById('rtl_icons');
+
+    // Set text direction + icon order
     if (lang === 'fa') {
         document.documentElement.setAttribute('dir', 'rtl');
         document.body.classList.add('rtl');
+
+        // Reverse icon order + spacing
+        rtlIcons.classList.add("flex-row-reverse", "space-x-reverse");
     } else {
         document.documentElement.setAttribute('dir', 'ltr');
         document.body.classList.remove('rtl');
+
+        // Reset to normal order
+        rtlIcons.classList.remove("flex-row-reverse", "space-x-reverse");
     }
 }
