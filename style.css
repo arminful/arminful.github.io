@@ -20,7 +20,6 @@
     box-shadow: 0 0 15px rgba(99, 102, 241, 0.5), inset 0 0 15px rgba(99, 102, 241, 0.1);
 }
 
-
 /* Tooltip styles */
 
 .tooltip {
@@ -71,14 +70,12 @@
     color: #cbd5e1;
 }
 
-
 /* RTL adjustments for info icon */
 
 .rtl .info-icon {
     margin-left: 0;
     margin-right: 12px;
 }
-
 
 /* File display styles */
 
@@ -99,6 +96,26 @@
     color: #f87171;
 }
 
+/* Preview styles */
+.preview-container {
+    margin-top: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.image-preview {
+    max-width: 100%;
+    max-height: 200px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+
+.audio-preview {
+    width: 100%;
+    margin-top: 10px;
+}
 
 /* Drag and drop styles */
 
@@ -167,7 +184,6 @@
     background-color: rgba(99, 102, 241, 0.2) !important;
     border-color: #6366f1 !important;
 }
-
 
 /* Language selector styles */
 
@@ -240,7 +256,6 @@
     flex-shrink: 0;
 }
 
-
 /* RTL support */
 
 .rtl .language-selector {
@@ -252,7 +267,6 @@
     left: auto;
     right: 0;
 }
-
 
 /* RTL tooltip positioning */
 
@@ -267,7 +281,6 @@
     /* Increased padding */
 }
 
-
 /* Adjust arrow position for RTL */
 
 .rtl .tooltip::after {
@@ -277,7 +290,6 @@
     margin-right: -5px;
 }
 
-
 /* Add padding to the right of the info icon in RTL */
 
 .rtl .info-icon {
@@ -286,7 +298,6 @@
     padding-right: 8px;
     /* Extra padding on the right */
 }
-
 
 /* Main container adjustments */
 
@@ -298,7 +309,6 @@
 .neon-border {
     box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
 }
-
 
 /* Form adjustments */
 
@@ -313,7 +323,6 @@ button {
     box-sizing: border-box;
 }
 
-
 /* Search results adjustments */
 
 .search-results {
@@ -322,7 +331,6 @@ button {
     box-sizing: border-box;
 }
 
-
 /* Notification adjustments */
 
 #notification {
@@ -330,13 +338,11 @@ button {
     max-width: 90%;
 }
 
-
 /* Flex container adjustments */
 
 .flex.items-center {
     flex-wrap: wrap;
 }
-
 
 /* Responsive adjustments */
 
@@ -345,28 +351,34 @@ button {
         width: 90%;
         padding: 1.5rem;
     }
+
     .drop-zone-title {
         font-size: 1.2rem;
     }
+
     .drop-zone-icon {
         font-size: 3rem;
     }
+
     #notification {
         max-width: calc(100% - 40px);
         left: 20px;
         right: 20px;
     }
+
     .tooltip {
         max-width: 200px;
         width: max-content;
         font-size: 13px;
         padding: 8px 12px;
     }
+
     .rtl .tooltip {
         max-width: 180px;
         right: 45%;
         /* Adjusted for smaller screens */
     }
+
     .rtl .tooltip::after {
         right: 45%;
         /* Match the tooltip position */
