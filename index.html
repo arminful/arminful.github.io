@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,6 +46,7 @@
         }
     </script>
 </head>
+
 <body class="bg-gradient-to-br from-dj-darker via-dj-dark to-slate-900 min-h-screen p-4 text-white">
     <!-- Language Selector -->
     <div class="language-selector">
@@ -69,57 +71,76 @@
     </div>
     <div class="max-w-4xl mx-auto glass-effect rounded-3xl overflow-hidden shadow-2xl neon-border">
         <!-- DJ Info Section -->
-        <div class="text-center p-6 md:p-10 bg-gradient-to-r from-dj-primary/20 to-dj-accent/20 border-b border-slate-700/50">
+        <div
+            class="text-center p-6 md:p-10 bg-gradient-to-r from-dj-primary/20 to-dj-accent/20 border-b border-slate-700/50">
             <div class="relative inline-block mb-6">
-                <div class="w-24 h-24 md:w-32 md:h-32 mx-auto rounded-full bg-gradient-to-br from-dj-primary to-dj-secondary p-1 animate-float">
+                <div
+                    class="w-24 h-24 md:w-32 md:h-32 mx-auto rounded-full bg-gradient-to-br from-dj-primary to-dj-secondary p-1 animate-float">
                     <div class="w-full h-full rounded-full bg-dj-dark flex items-center justify-center">
                         <i class="fas fa-headphones text-4xl md:text-5xl gradient-text"></i>
                     </div>
                 </div>
-                <div class="absolute -bottom-2 -right-2 w-8 h-8 md:w-10 md:h-10 rounded-full bg-dj-secondary flex items-center justify-center animate-glow">
+                <div
+                    class="absolute -bottom-2 -right-2 w-8 h-8 md:w-10 md:h-10 rounded-full bg-dj-secondary flex items-center justify-center animate-glow">
                     <i class="fas fa-music text-white text-sm"></i>
                 </div>
             </div>
             <h1 class="text-4xl md:text-5xl font-bold mb-3 gradient-text">ArminFul</h1>
-            <p class="text-slate-300 mb-6 md:mb-8 text-base md:text-lg" data-i18n="djSubtitle">Professional DJ & Music Producer
+            <p class="text-slate-300 mb-6 md:mb-8 text-base md:text-lg" data-i18n="djSubtitle">Professional DJ & Music
+                Producer
             </p>
             <div class="flex justify-center space-x-4 md:space-x-6">
-                <a href="https://instagram.com/dj_arminful" target="_blank" class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-slate-800/50 flex items-center justify-center text-lg md:text-xl hover:bg-dj-primary/30 transition-all duration-300 hover:-translate-y-1 hover:scale-110 border border-slate-700/50">
+                <a href="https://instagram.com/dj_arminful" target="_blank"
+                    class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-slate-800/50 flex items-center justify-center text-lg md:text-xl hover:bg-dj-primary/30 transition-all duration-300 hover:-translate-y-1 hover:scale-110 border border-slate-700/50">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="https://facebook.com/arminful" target="_blank" class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-slate-800/50 flex items-center justify-center text-lg md:text-xl hover:bg-dj-primary/30 transition-all duration-300 hover:-translate-y-1 hover:scale-110 border border-slate-700/50">
+                <a href="https://facebook.com/arminful" target="_blank"
+                    class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-slate-800/50 flex items-center justify-center text-lg md:text-xl hover:bg-dj-primary/30 transition-all duration-300 hover:-translate-y-1 hover:scale-110 border border-slate-700/50">
                     <i class="fab fa-facebook"></i>
                 </a>
-                <a href="mailto:arminful@example.com" class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-slate-800/50 flex items-center justify-center text-lg md:text-xl hover:bg-dj-primary/30 transition-all duration-300 hover:-translate-y-1 hover:scale-110 border border-slate-700/50">
+                <a href="mailto:arminful@example.com"
+                    class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-slate-800/50 flex items-center justify-center text-lg md:text-xl hover:bg-dj-primary/30 transition-all duration-300 hover:-translate-y-1 hover:scale-110 border border-slate-700/50">
                     <i class="fas fa-envelope"></i>
                 </a>
             </div>
         </div>
         <!-- Form Section -->
-        <form id="requestForm" method="POST" enctype="multipart/form-data" action="https://formsubmit.co/arminful@gmail.com" class="p-4 md:p-8">
+        <form id="requestForm" method="POST" enctype="multipart/form-data"
+            action="https://formsubmit.co/arminful@gmail.com" class="p-4 md:p-8">
             <input type="hidden" name="_captcha" value="false">
             <!-- Song Request Section -->
             <div class="mb-8 md:mb-10">
                 <h2 class="text-2xl md:text-3xl font-bold mb-6 md:mb-8 flex items-center">
-                    <span class="w-6 h-6 md:w-8 md:h-8 rounded-full bg-gradient-to-br from-dj-primary to-dj-secondary flex items-center justify-center mr-3">
+                    <span
+                        class="w-6 h-6 md:w-8 md:h-8 rounded-full bg-gradient-to-br from-dj-primary to-dj-secondary flex items-center justify-center mr-3">
                         <i class="fas fa-music text-xs md:text-sm"></i>
                     </span>
                     <span class="gradient-text" data-i18n="songRequest">Song Request</span>
                 </h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8">
                     <div>
-                        <label for="name" class="block mb-2 md:mb-3 font-semibold text-slate-300" data-i18n="yourName">Your Name</label>
-                        <input type="text" id="name" name="name" data-i18n-placeholder="enterName" placeholder="Enter your name" required class="w-full p-3 md:p-4 rounded-xl bg-slate-800/50 border border-slate-700 focus:outline-none focus:border-dj-primary focus:ring-2 focus:ring-dj-primary/20 transition-all duration-300">
+                        <label for="name" class="block mb-2 md:mb-3 font-semibold text-slate-300"
+                            data-i18n="yourName">Your Name</label>
+                        <input type="text" id="name" name="name" data-i18n-placeholder="enterName"
+                            placeholder="Enter your name" required
+                            class="w-full p-3 md:p-4 rounded-xl bg-slate-800/50 border border-slate-700 focus:outline-none focus:border-dj-primary focus:ring-2 focus:ring-dj-primary/20 transition-all duration-300">
                     </div>
                     <div>
-                        <label for="email" class="block mb-2 md:mb-3 font-semibold text-slate-300" data-i18n="yourEmail">Your Email</label>
-                        <input type="email" id="email" name="email" data-i18n-placeholder="enterEmail" placeholder="Enter your email" required class="w-full p-3 md:p-4 rounded-xl bg-slate-800/50 border border-slate-700 focus:outline-none focus:border-dj-primary focus:ring-2 focus:ring-dj-primary/20 transition-all duration-300">
+                        <label for="email" class="block mb-2 md:mb-3 font-semibold text-slate-300"
+                            data-i18n="yourEmail">Your Email</label>
+                        <input type="email" id="email" name="email" data-i18n-placeholder="enterEmail"
+                            placeholder="Enter your email" required
+                            class="w-full p-3 md:p-4 rounded-xl bg-slate-800/50 border border-slate-700 focus:outline-none focus:border-dj-primary focus:ring-2 focus:ring-dj-primary/20 transition-all duration-300">
                     </div>
                 </div>
                 <div class="mb-6 md:mb-8">
-                    <label for="phone" class="block mb-2 md:mb-3 font-semibold text-slate-300" data-i18n="phoneNumber">Phone Number (Norwegian +47)</label>
-                    <input type="tel" id="phone" name="phone" data-i18n-placeholder="phonePlaceholder" placeholder="+47 XXXXXXXX" pattern="^\+47\d{8}$" required class="w-full p-3 md:p-4 rounded-xl bg-slate-800/50 border border-slate-700 focus:outline-none focus:border-dj-primary focus:ring-2 focus:ring-dj-primary/20 transition-all duration-300">
-                    <p class="text-xs md:text-sm text-slate-400 mt-1 md:mt-2" data-i18n="phoneFormat">Format: +47 followed by 8 digits</p>
+                    <label for="phone" class="block mb-2 md:mb-3 font-semibold text-slate-300"
+                        data-i18n="phoneNumber">Phone Number (Norwegian +47)</label>
+                    <input type="tel" id="phone" name="phone" data-i18n-placeholder="phonePlaceholder"
+                        placeholder="+47 XXXXXXXX" pattern="^\+47\d{8}$" required
+                        class="w-full p-3 md:p-4 rounded-xl bg-slate-800/50 border border-slate-700 focus:outline-none focus:border-dj-primary focus:ring-2 focus:ring-dj-primary/20 transition-all duration-300">
+                    <p class="text-xs md:text-sm text-slate-400 mt-1 md:mt-2" data-i18n="phoneFormat">Format: +47
+                        followed by 8 digits</p>
                 </div>
                 <div class="mb-6 md:mb-8">
                     <div class="flex items-center mb-2 md:mb-3">
@@ -131,8 +152,11 @@
                         </div>
                     </div>
                     <div class="relative">
-                        <input type="file" id="musicFile" name="musicFile" accept="audio/mp3,audio/wav,audio/mpeg,audio/ogg" class="hidden" onchange="handleFileSelect(event)">
-                        <label for="musicFile" class="block p-4 md:p-6 rounded-xl bg-gradient-to-r from-dj-primary/20 to-dj-accent/20 border-2 border-dashed border-dj-primary/50 text-center cursor-pointer hover:border-dj-primary transition-all duration-300 hover:shadow-lg hover:shadow-dj-primary/20">
+                        <input type="file" id="musicFile" name="musicFile"
+                            accept="audio/mp3,audio/wav,audio/mpeg,audio/ogg" class="hidden"
+                            onchange="handleFileSelect(event)">
+                        <label for="musicFile"
+                            class="block p-4 md:p-6 rounded-xl bg-gradient-to-r from-dj-primary/20 to-dj-accent/20 border-2 border-dashed border-dj-primary/50 text-center cursor-pointer hover:border-dj-primary transition-all duration-300 hover:shadow-lg hover:shadow-dj-primary/20">
                             <i class="fas fa-cloud-upload-alt text-2xl md:text-3xl mb-2 md:mb-3 text-dj-primary"></i>
                             <p class="font-medium text-sm md:text-base" data-i18n="chooseMusicFile">Choose Music File
                             </p>
@@ -140,8 +164,10 @@
                                 drag and drop</p>
                         </label>
                     </div>
-                    <p class="text-xs md:text-sm text-slate-400 mt-2 md:mt-3" data-i18n="musicFileInfo">Maximum file size: 10MB. Allowed formats: MP3, WAV, OGG</p>
-                    <div id="file-name" class="mt-2 md:mt-3 p-2 md:p-3 rounded-lg bg-dj-primary/10 border border-dj-primary/30 hidden">
+                    <p class="text-xs md:text-sm text-slate-400 mt-2 md:mt-3" data-i18n="musicFileInfo">Maximum file
+                        size: 10MB. Allowed formats: MP3, WAV, OGG</p>
+                    <div id="file-name"
+                        class="mt-2 md:mt-3 p-2 md:p-3 rounded-lg bg-dj-primary/10 border border-dj-primary/30 hidden">
                         <div class="file-display">
                             <div class="flex items-center">
                                 <i class="fas fa-music mr-2 text-dj-primary"></i>
@@ -150,9 +176,69 @@
                             <i class="fas fa-times remove-file" onclick="removeFile('music')"></i>
                         </div>
                     </div>
-                    <!-- Music Preview -->
+                    <!-- Enhanced Music Preview -->
+                    <!-- Enhanced Music Preview -->
                     <div id="music-preview" class="preview-container hidden">
-                        <audio controls class="audio-preview"></audio>
+                        <div class="preview-header">
+                            <div class="preview-title">
+                                <i class="fas fa-music"></i>
+                                <span>Music Preview</span>
+                            </div>
+                            <div class="preview-close" onclick="removeFile('music')">
+                                <i class="fas fa-times"></i>
+                            </div>
+                        </div>
+                        <div class="audio-preview">
+                            <audio id="audio-player" src=""></audio>
+                            <div class="audio-player">
+                                <div class="audio-player-info">
+                                    <div class="audio-player-artwork">
+                                        <i class="fas fa-music"></i>
+                                    </div>
+                                    <div class="audio-player-details">
+                                        <div class="audio-player-title" id="audio-title">Music File</div>
+                                        <div class="audio-player-artist" id="audio-artist">Unknown Artist</div>
+                                    </div>
+                                </div>
+                                <div class="audio-player-controls">
+                                    <button type="button" class="audio-player-btn" id="prev-btn">
+                                        <i class="fas fa-step-backward"></i>
+                                    </button>
+                                    <button type="button" class="audio-player-btn play-pause" id="play-pause-btn">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                    <button type="button" class="audio-player-btn" id="next-btn">
+                                        <i class="fas fa-step-forward"></i>
+                                    </button>
+                                    <div class="audio-player-timeline" id="timeline">
+                                        <div class="audio-player-progress" id="progress"></div>
+                                        <div class="audio-player-buffer" id="buffer"></div>
+                                        <div class="audio-player-thumb" id="thumb"></div>
+                                    </div>
+                                </div>
+                                <div class="audio-player-time">
+                                    <span id="current-time">0:00</span>
+                                    <span id="duration">0:00</span>
+                                </div>
+                                <div class="audio-player-volume">
+                                    <button type="button" class="audio-player-volume-btn" id="volume-btn">
+                                        <i class="fas fa-volume-up"></i>
+                                    </button>
+                                    <input type="range" class="audio-player-volume-slider" id="volume-slider" min="0"
+                                        max="100" value="70">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="preview-info">
+                            <div class="preview-info-item">
+                                <i class="fas fa-file-audio"></i>
+                                <span id="music-file-name">-</span>
+                            </div>
+                            <div class="preview-info-item">
+                                <i class="fas fa-weight"></i>
+                                <span id="music-file-size">-</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- New Image Upload Section -->
@@ -167,8 +253,11 @@
                         </div>
                     </div>
                     <div class="relative">
-                        <input type="file" id="imageFile" name="imageFile" accept="image/jpeg,image/jpg,image/png,image/gif" class="hidden" onchange="handleImageSelect(event)">
-                        <label for="imageFile" class="block p-4 md:p-6 rounded-xl bg-gradient-to-r from-dj-secondary/20 to-dj-accent/20 border-2 border-dashed border-dj-secondary/50 text-center cursor-pointer hover:border-dj-secondary transition-all duration-300 hover:shadow-lg hover:shadow-dj-secondary/20">
+                        <input type="file" id="imageFile" name="imageFile"
+                            accept="image/jpeg,image/jpg,image/png,image/gif" class="hidden"
+                            onchange="handleImageSelect(event)">
+                        <label for="imageFile"
+                            class="block p-4 md:p-6 rounded-xl bg-gradient-to-r from-dj-secondary/20 to-dj-accent/20 border-2 border-dashed border-dj-secondary/50 text-center cursor-pointer hover:border-dj-secondary transition-all duration-300 hover:shadow-lg hover:shadow-dj-secondary/20">
                             <i class="fas fa-image text-2xl md:text-3xl mb-2 md:mb-3 text-dj-secondary"></i>
                             <p class="font-medium text-sm md:text-base" data-i18n="chooseImageFile">Choose Image File
                             </p>
@@ -176,8 +265,10 @@
                                 drag and drop</p>
                         </label>
                     </div>
-                    <p class="text-xs md:text-sm text-slate-400 mt-2 md:mt-3" data-i18n="imageFileInfo">Maximum file size: 5MB. Allowed formats: JPG, JPEG, PNG, GIF</p>
-                    <div id="image-name" class="mt-2 md:mt-3 p-2 md:p-3 rounded-lg bg-dj-secondary/10 border border-dj-secondary/30 hidden">
+                    <p class="text-xs md:text-sm text-slate-400 mt-2 md:mt-3" data-i18n="imageFileInfo">Maximum file
+                        size: 5MB. Allowed formats: JPG, JPEG, PNG, GIF</p>
+                    <div id="image-name"
+                        class="mt-2 md:mt-3 p-2 md:p-3 rounded-lg bg-dj-secondary/10 border border-dj-secondary/30 hidden">
                         <div class="file-display">
                             <div class="flex items-center">
                                 <i class="fas fa-image mr-2 text-dj-secondary"></i>
@@ -186,9 +277,28 @@
                             <i class="fas fa-times remove-file" onclick="removeFile('image')"></i>
                         </div>
                     </div>
-                    <!-- Image Preview -->
+                    <!-- Enhanced Image Preview -->
                     <div id="image-preview" class="preview-container hidden">
+                        <div class="preview-header">
+                            <div class="preview-title">
+                                <i class="fas fa-image"></i>
+                                <span>Image Preview</span>
+                            </div>
+                            <div class="preview-close" onclick="removeFile('image')">
+                                <i class="fas fa-times"></i>
+                            </div>
+                        </div>
                         <img src="" alt="Image preview" class="image-preview">
+                        <div class="preview-info">
+                            <div class="preview-info-item">
+                                <i class="fas fa-file-image"></i>
+                                <span id="image-file-name">-</span>
+                            </div>
+                            <div class="preview-info-item">
+                                <i class="fas fa-weight"></i>
+                                <span id="image-file-size">-</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="mb-6 md:mb-8">
@@ -202,11 +312,15 @@
                         </div>
                     </div>
                     <div class="relative">
-                        <input type="text" id="musicSearch" name="musicSearch" data-i18n-placeholder="searchSong" placeholder="Search for a song..." class="w-full p-3 md:p-4 rounded-xl bg-slate-800/50 border border-slate-700 focus:outline-none focus:border-dj-primary focus:ring-2 focus:ring-dj-primary/20 transition-all duration-300">
-                        <div id="searchResults" class="search-results absolute w-full bg-slate-800/90 backdrop-blur-md rounded-b-xl border border-slate-700 mt-1 hidden z-10">
+                        <input type="text" id="musicSearch" name="musicSearch" data-i18n-placeholder="searchSong"
+                            placeholder="Search for a song..."
+                            class="w-full p-3 md:p-4 rounded-xl bg-slate-800/50 border border-slate-700 focus:outline-none focus:border-dj-primary focus:ring-2 focus:ring-dj-primary/20 transition-all duration-300">
+                        <div id="searchResults"
+                            class="search-results absolute w-full bg-slate-800/90 backdrop-blur-md rounded-b-xl border border-slate-700 mt-1 hidden z-10">
                         </div>
                     </div>
-                    <div id="songFound" class="mt-3 md:mt-4 p-3 md:p-4 rounded-xl bg-green-500/20 border border-green-500/30 hidden">
+                    <div id="songFound"
+                        class="mt-3 md:mt-4 p-3 md:p-4 rounded-xl bg-green-500/20 border border-green-500/30 hidden">
                         <div class="file-display">
                             <div class="flex items-center">
                                 <i class="fas fa-check-circle mr-2 text-green-400"></i>
@@ -220,7 +334,8 @@
                 <!-- New Feedback Section -->
                 <div class="mb-6 md:mb-8">
                     <div class="flex items-center mb-2 md:mb-3">
-                        <label for="feedback" class="block font-semibold text-slate-300" data-i18n="feedback">Feedback</label>
+                        <label for="feedback" class="block font-semibold text-slate-300"
+                            data-i18n="feedback">Feedback</label>
                         <div class="tooltip-trigger relative">
                             <i class="fas fa-info-circle info-icon"></i>
                             <span class="tooltip" data-i18n="feedbackTooltip">Share your thoughts about the music, event
@@ -228,28 +343,38 @@
                                 experiences!</span>
                         </div>
                     </div>
-                    <textarea id="feedback" name="feedback" rows="4" data-i18n-placeholder="feedbackPlaceholder" placeholder="Share your feedback or special requests..." class="w-full p-3 md:p-4 rounded-xl bg-slate-800/50 border border-slate-700 focus:outline-none focus:border-dj-primary focus:ring-2 focus:ring-dj-primary/20 transition-all duration-300"></textarea>
+                    <textarea id="feedback" name="feedback" rows="4" data-i18n-placeholder="feedbackPlaceholder"
+                        placeholder="Share your feedback or special requests..."
+                        class="w-full p-3 md:p-4 rounded-xl bg-slate-800/50 border border-slate-700 focus:outline-none focus:border-dj-primary focus:ring-2 focus:ring-dj-primary/20 transition-all duration-300"></textarea>
                 </div>
             </div>
             <!-- Support Section -->
-            <div class="mb-6 md:mb-10 p-4 md:p-8 rounded-2xl bg-gradient-to-br from-dj-primary/10 to-dj-secondary/10 border border-slate-700/50">
+            <div
+                class="mb-6 md:mb-10 p-4 md:p-8 rounded-2xl bg-gradient-to-br from-dj-primary/10 to-dj-secondary/10 border border-slate-700/50">
                 <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6 flex items-center">
-                    <span class="w-6 h-6 md:w-8 md:h-8 rounded-full bg-gradient-to-br from-dj-secondary to-dj-accent flex items-center justify-center mr-3">
+                    <span
+                        class="w-6 h-6 md:w-8 md:h-8 rounded-full bg-gradient-to-br from-dj-secondary to-dj-accent flex items-center justify-center mr-3">
                         <i class="fas fa-coins text-xs md:text-sm"></i>
                     </span>
                     <span class="gradient-text" data-i18n="supportDJ">Support the DJ</span>
                 </h2>
-                <p class="text-slate-300 mb-4 md:mb-8 text-base md:text-lg" data-i18n="supportText">Enjoying the music? Show your support with a tip!</p>
+                <p class="text-slate-300 mb-4 md:mb-8 text-base md:text-lg" data-i18n="supportText">Enjoying the music?
+                    Show your support with a tip!</p>
                 <div class="flex flex-col sm:flex-row justify-center gap-6 md:gap-8">
-                    <a href="https://paypal.me/ArminEsmaili" target="_blank" class="group flex flex-col items-center p-4 md:p-6 rounded-2xl bg-slate-800/50 border border-slate-700 hover:bg-dj-primary/20 hover:border-dj-primary transition-all duration-300 hover:scale-105">
-                        <div class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-dj-primary/20 flex items-center justify-center mb-3 md:mb-4 group-hover:bg-dj-primary/30 transition-colors">
+                    <a href="https://paypal.me/ArminEsmaili" target="_blank"
+                        class="group flex flex-col items-center p-4 md:p-6 rounded-2xl bg-slate-800/50 border border-slate-700 hover:bg-dj-primary/20 hover:border-dj-primary transition-all duration-300 hover:scale-105">
+                        <div
+                            class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-dj-primary/20 flex items-center justify-center mb-3 md:mb-4 group-hover:bg-dj-primary/30 transition-colors">
                             <i class="fab fa-paypal text-2xl md:text-3xl text-dj-primary"></i>
                         </div>
                         <span class="font-medium">PayPal</span>
                     </a>
-                    <a href="https://qr.vipps.no/28/2/01/031/4796670407?v=1" target="_blank" class="group flex flex-col items-center p-4 md:p-6 rounded-2xl bg-slate-800/50 border border-slate-700 hover:bg-dj-secondary/20 hover:border-dj-secondary transition-all duration-300 hover:scale-105">
-                        <div class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-dj-secondary/20 flex items-center justify-center mb-3 md:mb-4 group-hover:bg-dj-secondary/30 transition-colors">
-                            <img src="https://download.logo.wine/logo/Vipps/Vipps-Logo.wine.png" alt="Vipps" class="w-8 h-8 md:w-10 md:h-10">
+                    <a href="https://qr.vipps.no/28/2/01/031/4796670407?v=1" target="_blank"
+                        class="group flex flex-col items-center p-4 md:p-6 rounded-2xl bg-slate-800/50 border border-slate-700 hover:bg-dj-secondary/20 hover:border-dj-secondary transition-all duration-300 hover:scale-105">
+                        <div
+                            class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-dj-secondary/20 flex items-center justify-center mb-3 md:mb-4 group-hover:bg-dj-secondary/30 transition-colors">
+                            <img src="https://download.logo.wine/logo/Vipps/Vipps-Logo.wine.png" alt="Vipps"
+                                class="w-8 h-8 md:w-10 md:h-10">
                         </div>
                         <span class="font-medium">Vipps</span>
                     </a>
@@ -262,7 +387,8 @@
                     </script>
                 </div>
             </div>
-            <button type="submit" class="w-full max-w-xs mx-auto block py-3 md:py-4 px-6 md:px-8 bg-gradient-to-r from-dj-primary to-dj-secondary text-white font-bold rounded-full hover:shadow-xl hover:shadow-dj-primary/50 transition-all duration-300 hover:scale-105 transform">
+            <button type="submit"
+                class="w-full max-w-xs mx-auto block py-3 md:py-4 px-6 md:px-8 bg-gradient-to-r from-dj-primary to-dj-secondary text-white font-bold rounded-full hover:shadow-xl hover:shadow-dj-primary/50 transition-all duration-300 hover:scale-105 transform">
                 <i class="fas fa-paper-plane mr-2"></i> <span data-i18n="sendRequest">Send Request</span>
             </button>
         </form>
@@ -283,7 +409,8 @@
         </div>
     </div>
     <!-- Notification -->
-    <div id="notification" class="fixed top-4 right-4 p-3 md:p-4 rounded-xl shadow-2xl transform translate-x-full transition-transform duration-500 z-50 flex items-center">
+    <div id="notification"
+        class="fixed top-4 right-4 p-3 md:p-4 rounded-xl shadow-2xl transform translate-x-full transition-transform duration-500 z-50 flex items-center">
         <i class="fas fa-info-circle mr-2 md:mr-3 text-lg md:text-xl"></i>
         <span class="text-sm"></span>
     </div>
@@ -291,4 +418,5 @@
     <script src="main.js"></script>
 </body>
 <script src="list.js"></script>
+
 </html>

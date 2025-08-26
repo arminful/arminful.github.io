@@ -15,6 +15,21 @@ const imagePreview = document.getElementById('image-preview');
 // Drag and drop elements
 const dropZoneMusic = document.getElementById('dropZoneMusic');
 const dropZoneImage = document.getElementById('dropZoneImage');
+// Audio player elements
+const audioPlayer = document.getElementById('audio-player');
+const playPauseBtn = document.getElementById('play-pause-btn');
+const prevBtn = document.getElementById('prev-btn');
+const nextBtn = document.getElementById('next-btn');
+const timeline = document.getElementById('timeline');
+const progress = document.getElementById('progress');
+const buffer = document.getElementById('buffer');
+const thumb = document.getElementById('thumb');
+const currentTimeDisplay = document.getElementById('current-time');
+const durationDisplay = document.getElementById('duration');
+const volumeBtn = document.getElementById('volume-btn');
+const volumeSlider = document.getElementById('volume-slider');
+const audioTitle = document.getElementById('audio-title');
+const audioArtist = document.getElementById('audio-artist');
 // Initialize translations
 document.addEventListener('DOMContentLoaded', () => {
     // Set default language to English
@@ -22,7 +37,167 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('selectedLanguage', 'en');
     }
     changeLanguage(localStorage.getItem('selectedLanguage'));
+    
+    // Initialize audio player event listeners
+    initializeAudioPlayer();
 });
+// Initialize audio player
+// Initialize audio player
+function initializeAudioPlayer() {
+    // Play/Pause functionality
+    playPauseBtn.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevent form submission
+        togglePlayPause();
+    });
+    
+    // Timeline functionality
+    timeline.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevent form submission
+        seekAudio(e);
+    });
+    timeline.addEventListener('mousemove', updateThumbPosition);
+    timeline.addEventListener('mouseleave', () => {
+        thumb.style.opacity = '0';
+    });
+    timeline.addEventListener('mouseenter', () => {
+        thumb.style.opacity = '1';
+    });
+    
+    // Volume control
+    volumeSlider.addEventListener('input', (e) => {
+        e.preventDefault(); // Prevent form submission
+        updateVolume();
+    });
+    volumeBtn.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevent form submission
+        toggleMute();
+    });
+    
+    // Previous/Next buttons (for demo purposes)
+    prevBtn.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevent form submission
+        audioPlayer.currentTime = Math.max(0, audioPlayer.currentTime - 10);
+    });
+    
+    nextBtn.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevent form submission
+        audioPlayer.currentTime = Math.min(audioPlayer.duration, audioPlayer.currentTime + 10);
+    });
+    
+    // Audio events
+    audioPlayer.addEventListener('timeupdate', updateProgress);
+    audioPlayer.addEventListener('loadedmetadata', updateDuration);
+    audioPlayer.addEventListener('progress', updateBuffer);
+    audioPlayer.addEventListener('ended', () => {
+        playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+    });
+}
+// Format file size helper function
+function formatFileSize(bytes) {
+    if (bytes === 0) return '0 Bytes';
+    
+    const k = 1024;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+}
+// Format time helper function
+function formatTime(seconds) {
+    if (isNaN(seconds)) return '0:00';
+    
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = Math.floor(seconds % 60);
+    
+    return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+}
+// Toggle play/pause
+function togglePlayPause() {
+    if (audioPlayer.paused) {
+        audioPlayer.play();
+        playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+    } else {
+        audioPlayer.pause();
+        playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+    }
+}
+// Update progress bar
+function updateProgress() {
+    const currentTime = audioPlayer.currentTime;
+    const duration = audioPlayer.duration;
+    
+    if (duration > 0) {
+        const progressPercent = (currentTime / duration) * 100;
+        progress.style.width = `${progressPercent}%`;
+        currentTimeDisplay.textContent = formatTime(currentTime);
+    }
+}
+// Update duration
+function updateDuration() {
+    durationDisplay.textContent = formatTime(audioPlayer.duration);
+}
+// Update buffer bar
+function updateBuffer() {
+    if (audioPlayer.buffered.length > 0) {
+        const bufferedEnd = audioPlayer.buffered.end(audioPlayer.buffered.length - 1);
+        const duration = audioPlayer.duration;
+        
+        if (duration > 0) {
+            const bufferPercent = (bufferedEnd / duration) * 100;
+            buffer.style.width = `${bufferPercent}%`;
+        }
+    }
+}
+// Seek audio
+function seekAudio(e) {
+    const rect = timeline.getBoundingClientRect();
+    const offsetX = e.clientX - rect.left;
+    const width = rect.width;
+    const seekPercent = offsetX / width;
+    
+    if (audioPlayer.duration) {
+        audioPlayer.currentTime = seekPercent * audioPlayer.duration;
+    }
+}
+// Update thumb position
+function updateThumbPosition(e) {
+    const rect = timeline.getBoundingClientRect();
+    const offsetX = e.clientX - rect.left;
+    const width = rect.width;
+    const seekPercent = Math.max(0, Math.min(1, offsetX / width));
+    
+    thumb.style.left = `${seekPercent * 100}%`;
+}
+// Update volume
+function updateVolume() {
+    const volume = volumeSlider.value / 100;
+    audioPlayer.volume = volume;
+    
+    // Update volume icon
+    if (volume === 0) {
+        volumeBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+    } else if (volume < 0.5) {
+        volumeBtn.innerHTML = '<i class="fas fa-volume-down"></i>';
+    } else {
+        volumeBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+    }
+}
+// Toggle mute
+function toggleMute() {
+    if (audioPlayer.volume > 0) {
+        // Save current volume
+        audioPlayer.dataset.prevVolume = audioPlayer.volume;
+        audioPlayer.volume = 0;
+        volumeSlider.value = 0;
+        volumeBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+    } else {
+        // Restore previous volume
+        const prevVolume = parseFloat(audioPlayer.dataset.prevVolume) || 0.7;
+        audioPlayer.volume = prevVolume;
+        volumeSlider.value = prevVolume * 100;
+        updateVolume();
+    }
+}
 // Handle file selection with validation
 function handleFileSelect(event) {
     const file = event.target.files[0];
@@ -50,13 +225,23 @@ function handleFileSelect(event) {
         fileNameDisplay.classList.remove('hidden');
         
         // Create music preview
-        const audio = musicPreview.querySelector('audio');
         // Revoke previous URL if exists
-        if (audio.src) {
-            URL.revokeObjectURL(audio.src);
+        if (audioPlayer.src) {
+            URL.revokeObjectURL(audioPlayer.src);
         }
-        audio.src = URL.createObjectURL(file);
+        audioPlayer.src = URL.createObjectURL(file);
         musicPreview.classList.remove('hidden');
+        
+        // Update music preview info
+        document.getElementById('music-file-name').textContent = file.name;
+        document.getElementById('music-file-size').textContent = formatFileSize(file.size);
+        
+        // Update audio player title
+        audioTitle.textContent = file.name.replace(/\.[^/.]+$/, ""); // Remove file extension
+        audioArtist.textContent = "Uploaded File";
+        
+        // Reset audio player
+        resetAudioPlayer();
         
         // Clear song search if any
         selectedSongValue.value = '';
@@ -100,10 +285,25 @@ function handleImageSelect(event) {
         }
         img.src = URL.createObjectURL(file);
         imagePreview.classList.remove('hidden');
+        
+        // Update image preview info
+        document.getElementById('image-file-name').textContent = file.name;
+        document.getElementById('image-file-size').textContent = formatFileSize(file.size);
     } else {
         imageNameDisplay.classList.add('hidden');
         imagePreview.classList.add('hidden');
     }
+}
+// Reset audio player
+function resetAudioPlayer() {
+    playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+    progress.style.width = '0%';
+    buffer.style.width = '0%';
+    currentTimeDisplay.textContent = '0:00';
+    durationDisplay.textContent = '0:00';
+    volumeSlider.value = 70;
+    audioPlayer.volume = 0.7;
+    updateVolume();
 }
 // Remove file function
 function removeFile(type) {
@@ -112,12 +312,15 @@ function removeFile(type) {
         fileNameDisplay.classList.add('hidden');
         
         // Revoke object URL and hide music preview
-        const audio = musicPreview.querySelector('audio');
-        if (audio.src) {
-            URL.revokeObjectURL(audio.src);
-            audio.src = '';
+        if (audioPlayer.src) {
+            URL.revokeObjectURL(audioPlayer.src);
+            audioPlayer.src = '';
         }
         musicPreview.classList.add('hidden');
+        
+        // Reset preview info
+        document.getElementById('music-file-name').textContent = '-';
+        document.getElementById('music-file-size').textContent = '-';
     } else if (type === 'image') {
         imageFileInput.value = '';
         imageNameDisplay.classList.add('hidden');
@@ -129,6 +332,10 @@ function removeFile(type) {
             img.src = '';
         }
         imagePreview.classList.add('hidden');
+        
+        // Reset preview info
+        document.getElementById('image-file-name').textContent = '-';
+        document.getElementById('image-file-size').textContent = '-';
     }
 }
 // Remove selected song function
@@ -198,13 +405,23 @@ dropZoneMusic.addEventListener('drop', (e) => {
         fileNameDisplay.classList.remove('hidden');
         
         // Create music preview
-        const audio = musicPreview.querySelector('audio');
         // Revoke previous URL if exists
-        if (audio.src) {
-            URL.revokeObjectURL(audio.src);
+        if (audioPlayer.src) {
+            URL.revokeObjectURL(audioPlayer.src);
         }
-        audio.src = URL.createObjectURL(file);
+        audioPlayer.src = URL.createObjectURL(file);
         musicPreview.classList.remove('hidden');
+        
+        // Update music preview info
+        document.getElementById('music-file-name').textContent = file.name;
+        document.getElementById('music-file-size').textContent = formatFileSize(file.size);
+        
+        // Update audio player title
+        audioTitle.textContent = file.name.replace(/\.[^/.]+$/, ""); // Remove file extension
+        audioArtist.textContent = "Uploaded File";
+        
+        // Reset audio player
+        resetAudioPlayer();
         
         // Clear song search if any
         selectedSongValue.value = '';
@@ -255,6 +472,10 @@ dropZoneImage.addEventListener('drop', (e) => {
         img.src = URL.createObjectURL(file);
         imagePreview.classList.remove('hidden');
         
+        // Update image preview info
+        document.getElementById('image-file-name').textContent = file.name;
+        document.getElementById('image-file-size').textContent = formatFileSize(file.size);
+        
         showNotification(translations[currentLanguage].imageFileUploaded);
     }
 });
@@ -293,12 +514,15 @@ function selectSong(song) {
     fileNameDisplay.classList.add('hidden');
     
     // Hide and revoke music preview when selecting a song from library
-    const audio = musicPreview.querySelector('audio');
-    if (audio.src) {
-        URL.revokeObjectURL(audio.src);
-        audio.src = '';
+    if (audioPlayer.src) {
+        URL.revokeObjectURL(audioPlayer.src);
+        audioPlayer.src = '';
     }
     musicPreview.classList.add('hidden');
+    
+    // Reset preview info
+    document.getElementById('music-file-name').textContent = '-';
+    document.getElementById('music-file-size').textContent = '-';
 }
 document.addEventListener('click', function(e) {
     if (!musicSearchInput.contains(e.target) && !searchResultsDiv.contains(e.target)) {
